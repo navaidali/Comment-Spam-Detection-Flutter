@@ -27,7 +27,7 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.orangeAccent,
-          title: const Text('Text classification'),
+          title: const Text('Spam Detection'),
         ),
         body: Container(
           padding: const EdgeInsets.all(4),
@@ -43,7 +43,7 @@ class _MyAppState extends State<MyApp> {
               Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                    border: Border.all(color: Colors.orangeAccent)),
+                    border: Border.all(color: Colors.teal)),
                 child: Row(children: <Widget>[
                   Expanded(
                     child: TextField(
@@ -72,7 +72,7 @@ class _MyAppState extends State<MyApp> {
                                     style: const TextStyle(fontSize: 16),
                                   ),
                                   Text("Output:"),
-                                  Text("   Spam: $prediction"),
+                                  Text("   Spam Detected?: $prediction"),
                                 ],
                               ),
                             ),
