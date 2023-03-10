@@ -57,29 +57,34 @@ class _MyAppState extends State<MyApp> {
                     onPressed: () {
                       final text = _controller.text;
                       final prediction = _classifier.classify(text);
-                      setState(() {
-                        _children.add(Dismissible(
-                          key: GlobalKey(),
-                          onDismissed: (direction) {},
-                          child: Card(
-                            child: Container(
-                              padding: const EdgeInsets.all(16),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  Text(
-                                    "Input: $text",
-                                    style: const TextStyle(fontSize: 16),
-                                  ),
-                                  Text("Output:"),
-                                  Text("   Spam Detected?: $prediction"),
-                                ],
+                      if(prediction==1){
+                        setState(() {
+                          _children.add(Dismissible(
+                            key: GlobalKey(),
+                            onDismissed: (direction) {},
+                            child: Card(
+                              child: Container(
+                                padding: const EdgeInsets.all(16),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Text(
+                                      "Input: $text",
+                                      style: const TextStyle(fontSize: 16),
+                                    ),
+                                    Text("Output:"),
+                                    Text("   Spam Detected?: $prediction"),
+                                  ],
+                                ),
                               ),
                             ),
-                          ),
-                        ));
-                        _controller.clear();
-                      });
+                          ));
+                          _controller.clear();
+                        });
+                      }else{
+                        print("Spam not detected.");
+                      }
+
                     },
                   ),
                 ]),
